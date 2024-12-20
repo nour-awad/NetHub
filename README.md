@@ -60,7 +60,7 @@ Trivolio is a Trivia Quiz Website, a fun and educational web application that al
 
 ## Components Overview
 
-### **Nour:**
+### **Nour**
 - `App.jsx`: Main app structure and routing.
 - `TriviaQuestion.jsx`: Dynamic question rendering.
 - `Footer.jsx`: Static footer with navigation links.
