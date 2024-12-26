@@ -15,6 +15,10 @@ function App() {
     
     </div>
   );
+
+    <div>
+      <TrivolioFooter/>
+    </div>
 }
 
 export default App;
