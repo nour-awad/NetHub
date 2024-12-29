@@ -1,0 +1,41 @@
+/* Timer.css */
+.timer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ff69b4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .timer h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .timer-button {
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #ff69b4;
+    background-color: #fff;
+    border: 2px solid #ff69b4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .timer-button:hover {
+    background-color: #FFD700;
+    color: #fff;
+  }
+  
+  .timer-button:active {
+    background-color: #e75480;
+  }
+  
