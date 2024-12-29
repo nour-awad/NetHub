@@ -1,62 +1,34 @@
-import { Footer } from 'flowbite-react';
 import React from 'react';
-import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
 import '/src/pages/footer.css';
 
-export default function TrivolioFooter() {
+function TrivolioFooter() {
   return (
-    <footer>
-    <Footer className="footer-root">
-      <div className="footer-container">
-        <div className="footer-brand">
-          <Footer.Brand
-            href="https://flowbite.com"
-            src="https://flowbite.com/docs/images/logo.svg"
-            alt="Flowbite Logo"
-            name="Flowbite"
-          />
+    <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white rounded-lg shadow dark:bg-gray-900 m-4" id='main'>
+        <div className="mx-auto w-full max-w-screen-xl p-4 md:py-8">
+            <div className="sm:flex sm:items-center sm:justify-between">
+                <a href="#" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="trivolio" />
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Trivolio</span>
+                </a>
+                <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" className="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" className="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" className="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" className="hover:underline">Trivolio™</a>. All Rights Reserved.</span>
         </div>
-        <div className="footer-grid grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-          <div>
-            <Footer.Title className="footer-title" title="About" />
-            <Footer.LinkGroup className="footer-link-group col">
-              <Footer.Link href="#">Flowbite</Footer.Link>
-              <Footer.Link href="#">Tailwind CSS</Footer.Link>
-            </Footer.LinkGroup>
-          </div>
-          <div>
-            <Footer.Title className="footer-title" title="Follow us" />
-            <Footer.LinkGroup className="footer-link-group col">
-              <Footer.Link href="#">Github</Footer.Link>
-              <Footer.Link href="#">Discord</Footer.Link>
-            </Footer.LinkGroup>
-          </div>
-          <div>
-            <Footer.Title className="footer-title" title="Legal" />
-            <Footer.LinkGroup className="footer-link-group col">
-              <Footer.Link href="#">Privacy Policy</Footer.Link>
-              <Footer.Link href="#">Terms & Conditions</Footer.Link>
-            </Footer.LinkGroup>
-          </div>
-        </div>
-      </div>
-      <Footer.Divider className="footer-divider" />
-      <div className="footer-bottom w-full flex flex-wrap items-center justify-between">
-        <Footer.Copyright
-          className="footer-copyright"
-          href="#"
-          by="Flowbite™"
-          year={2022}
-        />
-        <div className="footer-icons flex space-x-4 mt-4 sm:mt-0">
-          <Footer.Icon href="#" icon={BsFacebook} />
-          <Footer.Icon href="#" icon={BsInstagram} />
-          <Footer.Icon href="#" icon={BsTwitter} />
-          <Footer.Icon href="#" icon={BsGithub} />
-        </div>
-      </div>
-    </Footer>
     </footer>
   );
 }
-
+export default TrivolioFooter;
