@@ -6,10 +6,11 @@ import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
 import Navbar from './Pages/Navbar.jsx';
 import Home from "./Pages/Home";
-import AnswerFeedback from "./Pages/Answer.jsx";
+import AnswerFeedback from './Pages/Answer.jsx';
 
 function App() {
   return (
+    <div>
       <Router>
         <Navbar />
         <Routes>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
+      </div>
   );
 }
 

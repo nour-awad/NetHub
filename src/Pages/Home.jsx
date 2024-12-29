@@ -53,14 +53,12 @@ function Home() {
           </ul>
         </div>
       </div>
-
-      {/* View More Button */}
-      <div className="view-more-container">
+       <div className="view-more-container">
         <button className="view-more-button" onClick={() => navigate("/trivia")}>
           View More
         </button>
       </div>
-    </div>
+      </div>
   );
 }
 
