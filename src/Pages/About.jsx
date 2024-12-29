@@ -75,7 +75,7 @@ function About() {
             />
             <h3 className="team-member-name">Faris Sharara</h3>
             <p className="team-member-description">
-              Faris led the development of the About page and implemented dynamic routing.
+              Knowing he will fail, fail a thousand times, but still won't give up.
             </p>
           </div>
         </div>
