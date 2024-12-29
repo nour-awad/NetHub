@@ -15,15 +15,16 @@ const Analytics = ({ correct, wrong }) => {
       <div className="row">
         <div className="col-md-6">
           <PieChart width={400} height={400} className="pie-chart">
-            <Pie
-              data={data}
-              dataKey="value"
-              outerRadius={150}
-              label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-            >
-              <Cell fill="#0088FE" />
-              <Cell fill="#FF8042" />
-            </Pie>
+          <Pie
+            data={data}
+            dataKey="value"
+            outerRadius={150}
+            label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+          >
+            <Cell fill="#0088FE" />
+            <Cell fill="#FF8042" />
+          </Pie>
+
             <Tooltip />
             <Legend />
           </PieChart>
