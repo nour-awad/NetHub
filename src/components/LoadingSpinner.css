@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    position: fixed; /* Ensures it stays centered on the viewport */
+    height: 100vh;
+    width: 100vw; 
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1000; /* Keeps it above other elements */
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent background */
+    z-index: 1000; 
+    background-color: rgba(255, 255, 255, 0.8); 
   }
   
   .spinner {
@@ -17,7 +17,7 @@
     border-radius: 50%;
     border-top-color: #3498db;
     animation: spin 1s linear infinite;
-    width: 50px; /* Spinner size */
+    width: 50px; 
     height: 50px;
   }
   

@@ -1,24 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import AnswerFeedback from '../Pages/Answer.jsx';
-import Navbar from '../Pages/Navbar.jsx';
-import Timer from '../Pages/Timer.jsx';
-import '../Pages/css/Trivia.css';
+import React, { useState, useEffect } from "react";
+import AnswerFeedback from "../Pages/Answer.jsx";
+import Navbar from "../Pages/Navbar.jsx";
+import Timer from "../Pages/Timer.jsx";
+import ScoreTracker from "../components/ScoreTracker.jsx"; // Import ScoreTracker component
+import "./css/Trivia.css";
+import "../components/LoadingSpinner.css";
 
 function Trivia({ onUpdateAnalytics }) {
   const [questionData, setQuestionData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [analytics, setAnalytics] = useState(() => {
-    const storedData = JSON.parse(localStorage.getItem('triviaAnalytics'));
+    const storedData = JSON.parse(localStorage.getItem("triviaAnalytics"));
     return storedData || { correct: 0, wrong: 0 };
   });
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [score, setScore] = useState(0); // State to track the score
 
   const fetchQuestion = async () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
+      const response = await fetch(
+        "https://opentdb.com/api.php?amount=1&type=multiple"
+      );
       const data = await response.json();
 
       if (data.response_code === 0 && data.results.length > 0) {
@@ -29,11 +34,12 @@ function Trivia({ onUpdateAnalytics }) {
             () => Math.random() - 0.5
           ),
         });
+        setScore((prevScore) => prevScore + 1); // Increment the score
       } else {
-        setError('No trivia questions available.');
+        setError("No trivia questions available.");
       }
     } catch (err) {
-      setError('Failed to fetch question.');
+      setError("Failed to fetch question.");
     } finally {
       setLoading(false);
     }
@@ -55,28 +61,33 @@ function Trivia({ onUpdateAnalytics }) {
 
     setAnalytics(updatedAnalytics);
 
-    // Save to local storage
-    localStorage.setItem('triviaAnalytics', JSON.stringify(updatedAnalytics));
+    localStorage.setItem("triviaAnalytics", JSON.stringify(updatedAnalytics));
 
-    // Notify parent component if needed
     if (onUpdateAnalytics) {
       onUpdateAnalytics(updatedAnalytics);
     }
 
-    // Fetch the next question after a short delay
     setTimeout(() => {
       setSelectedAnswer(null);
       fetchQuestion();
     }, 1000);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
   if (error) return <p className="alert alert-danger">{error}</p>;
 
   return (
     <div className="container mt-5">
-      <Navbar/>
-      <Timer/>
+      <Navbar />
+      <Timer />
+      <ScoreTracker initialScore={score} onScoreChange={setScore} /> {/* Add ScoreTracker */}
       <h1>Trivia Questions</h1>
       {questionData && (
         <div className="question-container">
