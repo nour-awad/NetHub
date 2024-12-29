@@ -1,9 +1,22 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures full viewport height */
+  margin: 0;
   padding: 2rem;
   text-align: center;
 }
+
+.spinner-container {
+  position: absolute; /* Keeps the spinner fixed in place */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfectly centers the spinner */
+  z-index: 1000; /* Ensures it overlays other elements */
+}
+
 
 .logo {
   height: 6em;
