@@ -1,22 +1,10 @@
-<<<<<<< HEAD
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';  
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        
-      </Routes>
-    </Router>
-  );
-=======
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Analytics from "./Pages/Analytics";
+import About from "./Pages/About";
+import Trivia from "./Pages/TriviaQuestions";
+import Footer from './Pages/Footer.jsx';
 import AnswerFeedback from "./Pages/Answer";
 
 function App() {
@@ -31,14 +19,10 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
+      <Footer/>
     
     </div>
   );
-
-    <div>
-      <TrivolioFooter/>
-    </div>
->>>>>>> 008426e63637193844aff75c0db3981371d8d61d
 }
 
 export default App;
