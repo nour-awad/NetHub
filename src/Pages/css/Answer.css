@@ -1,0 +1,43 @@
+.answer-feedback-container {
+  margin: 20px 0;
+}
+
+.mcq-option {
+  display: block;
+  width: 250px; /* Set a fixed width */
+  height: 50px; /* Set a fixed height */
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  color: #495057;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px auto; /* Center horizontally */
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.mcq-option:hover {
+  background-color: #e9ecef;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mcq-option:active {
+  background-color: #dee2e6;
+}
+
+.feedback-message {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.feedback-correct {
+  color: #28a745;
+}
+
+.feedback-wrong {
+  color: #dc3545;
+}
