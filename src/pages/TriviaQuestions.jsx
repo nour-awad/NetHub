@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AnswerFeedback from '../Pages/Answer.jsx';
 import Navbar from '../Pages/Navbar.jsx';
+import Timer from '../Pages/Timer.jsx';
 import '../Pages/css/Trivia.css';
 
 function Trivia({ onUpdateAnalytics }) {
@@ -75,6 +76,7 @@ function Trivia({ onUpdateAnalytics }) {
   return (
     <div className="container mt-5">
       <Navbar/>
+      <Timer/>
       <h1>Trivia Questions</h1>
       {questionData && (
         <div className="question-container">
