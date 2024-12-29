@@ -1,78 +1,95 @@
-import React, { useState } from 'react';
-import useFetch from '../hooks/useFetch';
+import React, { useState, useEffect } from 'react';
 import AnswerFeedback from '../Pages/Answer.jsx';
 import '../Pages/css/Trivia.css';
 
 function Trivia({ onUpdateAnalytics }) {
-  const { data, loading, error } = useFetch('https://opentdb.com/api.php?amount=50&type=multiple');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [analytics, setAnalytics] = useState({ correct: 0, wrong: 0 });
+  const [questionData, setQuestionData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [analytics, setAnalytics] = useState(() => {
+    const storedData = JSON.parse(localStorage.getItem('triviaAnalytics'));
+    return storedData || { correct: 0, wrong: 0 };
+  });
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p className="alert alert-danger">Error: {error}</p>;
+  const fetchQuestion = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
+      const data = await response.json();
 
-  if (!data || data.response_code !== 0) {
-    return <p>No trivia questions available.</p>;
-  }
-
-  const processedQuestions = data.results.map((question, index) => ({
-    ...question,
-    id: index,
-    answers: [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5),
-  }));
-
-  const handleAnswer = (questionId, isCorrect) => {
-    if (selectedAnswers[questionId] !== undefined) return;
-
-    setSelectedAnswers((prev) => ({ ...prev, [questionId]: isCorrect }));
-
-    setAnalytics((prev) => {
-      const updatedAnalytics = {
-        correct: prev.correct + (isCorrect ? 1 : 0),
-        wrong: prev.wrong + (!isCorrect ? 1 : 0),
-      };
-
-      // Notify parent component for analytics update
-      if (onUpdateAnalytics) {
-        onUpdateAnalytics(updatedAnalytics);
+      if (data.response_code === 0 && data.results.length > 0) {
+        const question = data.results[0];
+        setQuestionData({
+          ...question,
+          answers: [...question.incorrect_answers, question.correct_answer].sort(
+            () => Math.random() - 0.5
+          ),
+        });
+      } else {
+        setError('No trivia questions available.');
       }
-
-      return updatedAnalytics;
-    });
+    } catch (err) {
+      setError('Failed to fetch question.');
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const filteredQuestions = processedQuestions.filter((question) =>
-    question.question.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    fetchQuestion();
+  }, []);
+
+  const handleAnswer = (isCorrect) => {
+    if (selectedAnswer !== null) return;
+
+    setSelectedAnswer(isCorrect);
+
+    const updatedAnalytics = {
+      correct: analytics.correct + (isCorrect ? 1 : 0),
+      wrong: analytics.wrong + (!isCorrect ? 1 : 0),
+    };
+
+    setAnalytics(updatedAnalytics);
+
+    // Save to local storage
+    localStorage.setItem('triviaAnalytics', JSON.stringify(updatedAnalytics));
+
+    // Notify parent component if needed
+    if (onUpdateAnalytics) {
+      onUpdateAnalytics(updatedAnalytics);
+    }
+
+    // Fetch the next question after a short delay
+    setTimeout(() => {
+      setSelectedAnswer(null);
+      fetchQuestion();
+    }, 1000);
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p className="alert alert-danger">{error}</p>;
 
   return (
     <div className="container mt-5">
       <h1>Trivia Questions</h1>
-      <input
-        type="text"
-        placeholder="Search questions..."
-        className="form-control mb-3"
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <ul className="list-group">
-        {filteredQuestions.map((question) => (
-          <li key={question.id} className="list-group-item">
-            <h5 dangerouslySetInnerHTML={{ __html: question.question }} />
-            <ul>
-              {question.answers.map((answer, i) => (
-                <li key={i}>
-                  <AnswerFeedback
-                    answer={answer}
-                    isCorrect={answer === question.correct_answer}
-                    onAnswer={(isCorrect) => handleAnswer(question.id, isCorrect)}
-                  />
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      {questionData && (
+        <div className="question-container">
+          <h5 dangerouslySetInnerHTML={{ __html: questionData.question }} />
+          <ul>
+            {questionData.answers.map((answer, index) => (
+              <li key={index}>
+                <AnswerFeedback
+                  answer={answer}
+                  isCorrect={answer === questionData.correct_answer}
+                  onAnswer={(isCorrect) => handleAnswer(isCorrect)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
