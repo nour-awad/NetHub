@@ -6,10 +6,11 @@ import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
 import AnswerFeedback from "./Pages/Answer";
 import Home from "./Pages/Home";
-// import Footer from "./Pages/Footer";
+import Footer from "./Pages/Footer";
 
 function App() {
   return (
+    
     <div>
       <h1>Navbar Simulation</h1>
       <AnswerFeedback isCorrect={true} answer={"the true one"} ></AnswerFeedback>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/about" element={<About />} />
+          <Route path="/trivia" element={<TriviaQuestions />} />
         </Routes>
       </Router>
     {/* <Footer></Footer> */}
