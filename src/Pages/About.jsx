@@ -1,17 +1,24 @@
+import React from "react";
+import './css/Main.css';
 import './css/About.css';
 
 function About() {
   return (
-    <div className="about-page">
-      <div id="about-container" className="d-flex flex-column align-items-center">
-        <div id="about-project" className="project-section text-center">
-          <h1 className="project-title">Our Project</h1>
-          <p className="project-description">
-            This trivia game aims to test your knowledge about various categories of popular culture. The game includes a timer, questions, and a leaderboard.
-          </p>
-        </div>
+    <div>
+      <section className="hero">
+        <h1 className="hero-title">About Us</h1>
+        <div className="decorative-circle"></div>
+        <div className="decorative-star"></div>
+      </section>
+
+      <div className="content">
+        <h2>Our Project</h2>
+        <p>
+          This trivia game aims to test your knowledge about various categories of popular culture. The game includes a timer, questions, and a leaderboard.
+        </p>
+        <h2>Meet the Team</h2>
         <div id="team-members-container" className="team-container">
-          {/* Ahmed Taha */}
+          {/* Team Member 1 */}
           <div className="team-member">
             <img
               src="https://via.placeholder.com/150"
@@ -24,7 +31,7 @@ function About() {
             </p>
           </div>
 
-          {/* Leila Gamal */}
+          {/* Team Member 2 */}
           <div className="team-member">
             <img
               src="https://via.placeholder.com/150"
@@ -37,7 +44,7 @@ function About() {
             </p>
           </div>
 
-          {/* Nour Awad */}
+          {/* Team Member 3 */}
           <div className="team-member">
             <img
               src="https://via.placeholder.com/150"
@@ -50,7 +57,7 @@ function About() {
             </p>
           </div>
 
-          {/* Faris Sharara */}
+          {/* Team Member 4 */}
           <div className="team-member">
             <img
               src="https://via.placeholder.com/150"
