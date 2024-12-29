@@ -86,8 +86,7 @@ function Trivia({ onUpdateAnalytics }) {
   return (
     <div className="container mt-5">
       <Navbar />
-      <Timer />
-      <ScoreTracker initialScore={score} onScoreChange={setScore} /> 
+      <Timer /> 
       <h1>Trivia Questions</h1>
       {questionData && (
         <div className="question-container">
@@ -105,6 +104,7 @@ function Trivia({ onUpdateAnalytics }) {
           </ul>
         </div>
       )}
+      <ScoreTracker initialScore={score} onScoreChange={setScore} />
     </div>
   );
 }

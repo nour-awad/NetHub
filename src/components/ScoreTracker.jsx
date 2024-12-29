@@ -12,7 +12,7 @@ const ScoreTracker = ({ initialScore = 0, onScoreChange }) => {
 
   return (
     <div className="score-tracker">
-      <h1>Your Score: {score}</h1>
+      <h1>Score: {score}</h1>
       <button className="score-tracker-button" onClick={resetScore}>
         Reset
       </button>

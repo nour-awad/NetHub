@@ -27,7 +27,7 @@ function App() {
           <Route path="/analytics" element={<Analytics correct={analytics.correct} wrong={analytics.wrong} />} />
           <Route path="/trivia" element={<Trivia onUpdateAnalytics={handleUpdateAnalytics}/>} />
           <Route path="/about" element={<About />} />
-          <Route path="/Leaderboard" element={<Leaderboard />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </Router>
       </div>
