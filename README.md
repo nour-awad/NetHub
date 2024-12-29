@@ -27,8 +27,14 @@ The Trivia Application is an interactive quiz game built using React. It provide
 
 2- Navigate to the project directory:
 
-3- Install dependencies: Run the following command to install all the required libraries and dependencies: npm install
+3- Install dependencies: Run the following command to install all the required libraries and dependencies: 
+```bash
+npm install
+```
 
-4- Start the development server: After installation is complete, run the application using: npm start
+4- Start the development server: After installation is complete, run the application using: 
+```bash
+npm start
+```
 
-5- Open the application in your browser: The app should now be running at http://localhost:3000 on your local machine.
+5- Open the application in your browser: The app should now be running at http://localhost:5173 on your local machine.
