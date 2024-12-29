@@ -1,6 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import './css/Analytics.css';
+import Leaderboard from "./Leaderboard";
 
 const Analytics = ({ correct, wrong }) => {
   const data = [
@@ -15,16 +16,15 @@ const Analytics = ({ correct, wrong }) => {
       <div className="row">
         <div className="col-md-6">
           <PieChart width={400} height={400} className="pie-chart">
-          <Pie
-            data={data}
-            dataKey="value"
-            outerRadius={150}
-            label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
-          >
-            <Cell fill="#0088FE" />
-            <Cell fill="#FF8042" />
-          </Pie>
-
+            <Pie
+              data={data}
+              dataKey="value"
+              outerRadius={150}
+              label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+            >
+              <Cell fill="#0088FE" />
+              <Cell fill="#FF8042" />
+            </Pie>
             <Tooltip />
             <Legend />
           </PieChart>
@@ -39,6 +39,8 @@ const Analytics = ({ correct, wrong }) => {
           </p>
         </div>
       </div>
+      
+      <Leaderboard correctAnswers={correct} />
     </div>
   );
 };

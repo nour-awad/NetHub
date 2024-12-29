@@ -1,36 +1,36 @@
 .leaderboard-container {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  .leaderboard-table th,
-  .leaderboard-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .leaderboard-table th {
-    background-color: #3498db;
-    color: white;
-  }
-  
-  .leaderboard-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .leaderboard-table tr:hover {
-    background-color: #eaf1f8;
-  }
-  
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+  border: 1px solid #ff69b4;
+  border-radius: 8px;
+  background-color: #f8c8d2;
+  color: #333;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  border: 1px solid #ff69b4;
+  padding: 10px;
+  text-align: center;
+}
+
+.leaderboard-table th {
+  background-color: #ff69b4;
+  color: #fff;
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background-color: #f7b3d6;
+}
+
+.leaderboard-table tr:hover {
+  background-color: #e75480;
+}
