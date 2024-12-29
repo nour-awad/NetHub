@@ -4,8 +4,8 @@ import "./App.css";
 import Analytics from "./Pages/Analytics";
 import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
-import Footer from './Pages/Footer.jsx';
 import AnswerFeedback from "./Pages/Answer";
+import Footer from "./Pages/Footer";
 
 function App() {
   return (
@@ -15,12 +15,11 @@ function App() {
       <AnswerFeedback isCorrect={false} answer={"The false one"} ></AnswerFeedback>
       <Router>
         <Routes>
-          <Route path="/anlytics" element={<Analytics />} />
+          <Route path="/" element={<Analytics />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-      <Footer/>
-    
+    <Footer></Footer>
     </div>
   );
 }
