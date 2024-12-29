@@ -20,7 +20,7 @@ const Leaderboard = () => {
         ];
         
         
-        setScores(mockScores.sort((a, b) => b.score - a.score)); // Sort by score descending
+        setScores(mockScores.sort((a, b) => b.score - a.score)); 
       } catch (error) {
         console.error("Failed to fetch leaderboard data:", error);
       } finally {

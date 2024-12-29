@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AnswerFeedback from "../Pages/Answer.jsx";
 import Navbar from "../Pages/Navbar.jsx";
 import Timer from "../Pages/Timer.jsx";
-import ScoreTracker from "../components/ScoreTracker.jsx"; // Import ScoreTracker component
+import ScoreTracker from "../components/ScoreTracker.jsx"; 
 import "./css/Trivia.css";
 import "../components/LoadingSpinner.css";
 
@@ -15,7 +15,7 @@ function Trivia({ onUpdateAnalytics }) {
     return storedData || { correct: 0, wrong: 0 };
   });
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [score, setScore] = useState(0); // State to track the score
+  const [score, setScore] = useState(0);
 
   const fetchQuestion = async () => {
     try {
@@ -34,7 +34,7 @@ function Trivia({ onUpdateAnalytics }) {
             () => Math.random() - 0.5
           ),
         });
-        setScore((prevScore) => prevScore + 1); // Increment the score
+        setScore((prevScore) => prevScore + 1); 
       } else {
         setError("No trivia questions available.");
       }
@@ -87,7 +87,7 @@ function Trivia({ onUpdateAnalytics }) {
     <div className="container mt-5">
       <Navbar />
       <Timer />
-      <ScoreTracker initialScore={score} onScoreChange={setScore} /> {/* Add ScoreTracker */}
+      <ScoreTracker initialScore={score} onScoreChange={setScore} /> 
       <h1>Trivia Questions</h1>
       {questionData && (
         <div className="question-container">
