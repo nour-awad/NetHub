@@ -1,9 +1,22 @@
+<<<<<<< HEAD
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';  
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+      </Routes>
+    </Router>
+  );
+=======
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Analytics from "./Pages/Analytics";
-import About from "./Pages/About";
-import Trivia from "./Pages/TriviaQuestions";
 import AnswerFeedback from "./Pages/Answer";
 
 function App() {
@@ -14,15 +27,18 @@ function App() {
       <AnswerFeedback isCorrect={false} answer={"The false one"} ></AnswerFeedback>
       <Router>
         <Routes>
-          <Route path="/" element={<Trivia />} />
-          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/anlytics" element={<Analytics />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-      <h1>Footer Simulation</h1>
     
     </div>
   );
+
+    <div>
+      <TrivolioFooter/>
+    </div>
+>>>>>>> 008426e63637193844aff75c0db3981371d8d61d
 }
 
 export default App;
