@@ -4,14 +4,13 @@ import "./App.css";
 import Analytics from "./Pages/Analytics";
 import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
-import Footer from './Pages/Footer.js';
+import Navbar from './Pages/Navbar.jsx';
 import AnswerFeedback from "./Pages/Answer";
-// import Footer from "./Pages/Footer";
 
 function App() {
   return (
     <div>
-      <h1>Navbar Simulation</h1>
+      <Navbar/>
       <AnswerFeedback isCorrect={true} answer={"the true one"} ></AnswerFeedback>
       <AnswerFeedback isCorrect={false} answer={"The false one"} ></AnswerFeedback>
       <Router>
@@ -21,7 +20,6 @@ function App() {
         </Routes>
       </Router>
       <Footer/>
-    {/* <Footer></Footer> */}
     </div>
   );
 }
