@@ -4,6 +4,7 @@ import "./App.css";
 import Analytics from "./Pages/Analytics";
 import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
+import Footer from './Pages/Footer.jsx';
 import AnswerFeedback from "./Pages/Answer";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
-      <h1>Footer Simulation</h1>
+      <Footer/>
     
     </div>
   );

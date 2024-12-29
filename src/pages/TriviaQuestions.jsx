@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import useFetch from "../hooks/useFetch";
-import AnswerFeedback from "../Pages/Answer.jsx";
-import Analytics from "../Pages/Analytics.jsx";
+import React, { useState } from 'react';
+import useFetch from '../hooks/useFetch';
+import AnswerFeedback from '../Pages/Answer.jsx';
+import '../Pages/css/Trivia.css';
 
-function Trivia() {
-  const { data, loading, error } = useFetch(
-    "https://opentdb.com/api.php?amount=50&type=multiple"
-  );
-  const [searchTerm, setSearchTerm] = useState("");
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrongCount, setWrongCount] = useState(0);
+function Trivia({ onUpdateAnalytics }) {
+  const { data, loading, error } = useFetch('https://opentdb.com/api.php?amount=50&type=multiple');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [analytics, setAnalytics] = useState({ correct: 0, wrong: 0 });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="alert alert-danger">Error: {error}</p>;
@@ -18,17 +16,35 @@ function Trivia() {
     return <p>No trivia questions available.</p>;
   }
 
-  const filteredQuestions = data.results.filter((question) =>
+  const processedQuestions = data.results.map((question, index) => ({
+    ...question,
+    id: index,
+    answers: [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5),
+  }));
+
+  const handleAnswer = (questionId, isCorrect) => {
+    if (selectedAnswers[questionId] !== undefined) return; // Prevent multiple answers for the same question
+
+    setSelectedAnswers((prev) => ({ ...prev, [questionId]: isCorrect }));
+
+    setAnalytics((prev) => {
+      const updatedAnalytics = {
+        correct: prev.correct + (isCorrect ? 1 : 0),
+        wrong: prev.wrong + (!isCorrect ? 1 : 0),
+      };
+
+      // Notify parent component for analytics update
+      if (onUpdateAnalytics) {
+        onUpdateAnalytics(updatedAnalytics);
+      }
+
+      return updatedAnalytics;
+    });
+  };
+
+  const filteredQuestions = processedQuestions.filter((question) =>
     question.question.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleAnswer = (isCorrect) => {
-    if (isCorrect) {
-      setCorrectCount((prev) => prev + 1);
-    } else {
-      setWrongCount((prev) => prev + 1);
-    }
-  };
 
   return (
     <div className="container mt-5">
@@ -40,26 +56,23 @@ function Trivia() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <ul className="list-group">
-        {filteredQuestions.map((question, index) => (
-          <li key={index} className="list-group-item">
+        {filteredQuestions.map((question) => (
+          <li key={question.id} className="list-group-item">
             <h5 dangerouslySetInnerHTML={{ __html: question.question }} />
             <ul>
-              {[...question.incorrect_answers, question.correct_answer]
-                .sort(() => Math.random() - 0.5) // Shuffle answers
-                .map((answer, i) => (
-                  <li key={i}>
-                    <AnswerFeedback
-                      isCorrect={answer === question.correct_answer}
-                      answer={answer}
-                      onAnswer={handleAnswer}
-                    />
-                  </li>
-                ))}
+              {question.answers.map((answer, i) => (
+                <li key={i}>
+                  <AnswerFeedback
+                    answer={answer}
+                    isCorrect={answer === question.correct_answer}
+                    onAnswer={(isCorrect) => handleAnswer(question.id, isCorrect)}
+                  />
+                </li>
+              ))}
             </ul>
           </li>
         ))}
       </ul>
-      <Analytics correct={correctCount} wrong={wrongCount} />
     </div>
   );
 }
