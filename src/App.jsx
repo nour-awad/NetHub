@@ -1,21 +1,42 @@
+<<<<<<< HEAD
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
-import About from './compnents/About'
+import Home from './Pages/Home';  
 
 function App() {
-  return(
-<<<<<<< HEAD
-  <Router>
-  <Routes>
-    <Route path="/" element={<About />} />
-  </Routes>
-</Router>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+      </Routes>
+    </Router>
+  );
 =======
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Analytics from "./Pages/Analytics";
+import AnswerFeedback from "./Pages/Answer";
+
+function App() {
+  return (
+    <div>
+      <h1>Triviaa</h1>
+      <Router>
+        <Routes>
+          <Route path="/anlytics" element={<Analytics />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    
+    </div>
+  );
+
     <div>
       <TrivolioFooter/>
     </div>
->>>>>>> 60cf512 (Footer added)
-  )
+>>>>>>> 008426e63637193844aff75c0db3981371d8d61d
 }
 
-export default App
+export default App;
