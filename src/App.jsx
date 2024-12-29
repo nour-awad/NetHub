@@ -6,6 +6,7 @@ import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
 import Navbar from './Pages/Navbar.jsx';
 import Home from "./Pages/Home";
+import Leaderboard from "./Pages/Leaderboard";
 
 function App() {
   const [analytics, setAnalytics] = useState(() => {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/analytics" element={<Analytics correct={analytics.correct} wrong={analytics.wrong} />} />
           <Route path="/trivia" element={<Trivia onUpdateAnalytics={handleUpdateAnalytics}/>} />
           <Route path="/about" element={<About />} />
+          <Route path="/Leaderboard" element={<Leaderboard />} />
         </Routes>
       </Router>
       </div>
