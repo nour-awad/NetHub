@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Home.css"; // Import the CSS file
+import "./css/Home.css";
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState(null);

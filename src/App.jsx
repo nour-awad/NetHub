@@ -4,7 +4,7 @@ import "./App.css";
 import Analytics from "./Pages/Analytics";
 import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
-import Footer from './Pages/Footer.jsx';
+import Footer from './Pages/Footer.js';
 import AnswerFeedback from "./Pages/Answer";
 
 function App() {
@@ -18,7 +18,6 @@ function App() {
         </Routes>
       </Router>
       <Footer/>
-    
     </div>
   );
 }
