@@ -10,11 +10,10 @@ import AnswerFeedback from "./Pages/Answer";
 function App() {
   return (
     <div>
-      <h1>Navbar Simulation</h1>
+      <h1>Triviaa</h1>
       <Router>
         <Routes>
-          <Route path="/" element={<Trivia />} />
-          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/anlytics" element={<Analytics />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>
