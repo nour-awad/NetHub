@@ -10,6 +10,8 @@ function App() {
   return (
     <div>
       <h1>Navbar Simulation</h1>
+      <AnswerFeedback isCorrect={true} answer={"the true one"} ></AnswerFeedback>
+      <AnswerFeedback isCorrect={false} answer={"The false one"} ></AnswerFeedback>
       <Router>
         <Routes>
           <Route path="/" element={<Trivia />} />

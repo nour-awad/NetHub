@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../Pages/css/Answer.css";
 
 const AnswerFeedback = ({ isCorrect, answer, onAnswer }) => {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -18,12 +19,16 @@ const AnswerFeedback = ({ isCorrect, answer, onAnswer }) => {
   };
 
   return (
-    <div>
-      <button onClick={handleFeedback} className="btn btn-primary">
+    <div className="answer-feedback-container text-center">
+      <button onClick={handleFeedback} className="mcq-option">
         {answer}
       </button>
       {showFeedback && (
-        <p className={isCorrect ? "feedback-correct" : "feedback-wrong"}>
+        <p
+          className={`feedback-message ${
+            isCorrect ? "feedback-correct" : "feedback-wrong"
+          }`}
+        >
           {feedbackMessage}
         </p>
       )}
