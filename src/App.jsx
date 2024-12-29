@@ -6,6 +6,7 @@ import About from "./Pages/About";
 import Trivia from "./Pages/TriviaQuestions";
 import Navbar from './Pages/Navbar.jsx';
 import Home from "./Pages/Home";
+import Leaderboard from "./Pages/Leaderboard";
 import AnswerFeedback from './Pages/Answer.jsx';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/about" element={<About />} />
+          <Route path="/Leaderboard" element={<Leaderboard />} />
         </Routes>
       </Router>
       </div>

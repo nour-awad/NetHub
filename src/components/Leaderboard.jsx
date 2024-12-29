@@ -5,12 +5,12 @@ const Leaderboard = () => {
   const [scores, setScores] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate fetching leaderboard data
+  
   useEffect(() => {
     const fetchScores = async () => {
       setIsLoading(true);
       try {
-        // Mock API or localStorage retrieval
+        
         const mockScores = [
           { name: "Taha", score: 100 },
           { name: "Faris", score: 20 },
@@ -18,7 +18,7 @@ const Leaderboard = () => {
           { name: "Nour", score: 5 },
           
         ];
-        // Simulate API delay
+        
         
         setScores(mockScores.sort((a, b) => b.score - a.score)); // Sort by score descending
       } catch (error) {

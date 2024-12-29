@@ -29,7 +29,7 @@ export const SidebarData = [
   },
   {
     title: 'Leaderboard',
-    path: '/leaderboard',
+    path: '/Leaderboard',
     icon: <IoIcons.IoIosPodium />,
     cName: 'nav-text'
   }
