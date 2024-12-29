@@ -10,7 +10,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  background-color: #f8f9fa;
+  background-color: #FFD700;
   color: #495057;
   text-align: center;
   cursor: pointer;
@@ -19,13 +19,13 @@
 }
 
 .mcq-option:hover {
-  background-color: #e9ecef;
+  background-color: #ffd900be;
   transform: scale(1.02);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .mcq-option:active {
-  background-color: #dee2e6;
+  background-color: #ffd900be;
 }
 
 .feedback-message {

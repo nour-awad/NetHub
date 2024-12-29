@@ -10,18 +10,15 @@ import AnswerFeedback from "./Pages/Answer.jsx";
 
 function App() {
   return (
-    <div>
       <Router>
         <Navbar />
-        <AnswerFeedback isCorrect={true} answer={"aksdjn"}></AnswerFeedback>
         <Routes>
-          <Route path="/asd" element={<Home />} />
+          <Route path="/zxc" element={<Home />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/" element={<About />} />
         </Routes>
       </Router>
-    </div>
   );
 }
 
