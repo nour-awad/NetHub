@@ -19,9 +19,7 @@ const Analytics = ({ correct, wrong }) => {
               data={data}
               dataKey="value"
               outerRadius={150}
-              label={({ name, percent }) =>
-                `${name}: ${(percent * 100).toFixed(0)}%`
-              }
+              label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
             >
               <Cell fill="#0088FE" />
               <Cell fill="#FF8042" />

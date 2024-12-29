@@ -52,10 +52,9 @@ function Home() {
             </li>
           </ul>
         </div>
-
+      </div>
        
       </div>
-
       {/* View More Button */}
       <div className="view-more-container">
         <button className="view-more-button" onClick={() => navigate("/trivia")}>
