@@ -23,7 +23,7 @@ function Trivia({ onUpdateAnalytics }) {
   }));
 
   const handleAnswer = (questionId, isCorrect) => {
-    if (selectedAnswers[questionId] !== undefined) return; // Prevent multiple answers for the same question
+    if (selectedAnswers[questionId] !== undefined) return;
 
     setSelectedAnswers((prev) => ({ ...prev, [questionId]: isCorrect }));
 
