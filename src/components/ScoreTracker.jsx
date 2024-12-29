@@ -6,7 +6,7 @@ const ScoreTracker = ({ initialScore = 0, onScoreChange }) => {
   const [score, setScore] = useState(initialScore);
 
   const resetScore = () => {
-    setScore(initialScore);
+    setScore(0);
     if (onScoreChange) onScoreChange(initialScore);
   };
 

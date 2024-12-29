@@ -34,7 +34,6 @@ function Trivia({ onUpdateAnalytics }) {
             () => Math.random() - 0.5
           ),
         });
-        setScore((prevScore) => prevScore + 1); 
       } else {
         setError("No trivia questions available.");
       }
@@ -53,6 +52,10 @@ function Trivia({ onUpdateAnalytics }) {
     if (selectedAnswer !== null) return;
 
     setSelectedAnswer(isCorrect);
+
+    if (isCorrect) {
+      setScore((prevScore) => prevScore + 1);
+    }
 
     const updatedAnalytics = {
       correct: analytics.correct + (isCorrect ? 1 : 0),
@@ -73,6 +76,10 @@ function Trivia({ onUpdateAnalytics }) {
     }, 1000);
   };
 
+  const handleResetScore = () => {
+    setScore(0);
+  };
+
   if (loading) {
     return (
       <div className="spinner-container">
@@ -86,7 +93,7 @@ function Trivia({ onUpdateAnalytics }) {
   return (
     <div className="container mt-5">
       <Navbar />
-      <Timer /> 
+      <Timer />
       <h1>Trivia Questions</h1>
       {questionData && (
         <div className="question-container">
@@ -104,7 +111,11 @@ function Trivia({ onUpdateAnalytics }) {
           </ul>
         </div>
       )}
-      <ScoreTracker initialScore={score} onScoreChange={setScore} />
+      <ScoreTracker
+        initialScore={score}
+        onScoreChange={setScore}
+        onResetScore={handleResetScore}
+      />
     </div>
   );
 }
