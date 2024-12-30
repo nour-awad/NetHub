@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/Home.css";
+import * as IoIcons from 'react-icons/io';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -56,6 +59,9 @@ function Home() {
        <div className="view-more-container">
         <button className="view-more-button" onClick={() => navigate("/trivia")}>
           View More
+          <Link to='#' className='play'>
+            <IoIcons.IoIosPlay />
+          </Link>
         </button>
       </div>
       </div>

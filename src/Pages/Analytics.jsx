@@ -1,7 +1,6 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import './css/Analytics.css';
-import Leaderboard from "./Leaderboard";
 
 const Analytics = ({ correct, wrong }) => {
   const data = [
@@ -39,8 +38,6 @@ const Analytics = ({ correct, wrong }) => {
           </p>
         </div>
       </div>
-      
-      <Leaderboard correctAnswers={correct} />
     </div>
   );
 };
